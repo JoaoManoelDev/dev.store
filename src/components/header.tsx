@@ -8,7 +8,7 @@ export const Header = () => {
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-5">
         <Link href="/" className="text-2xl font-extrabold text-white">
-          devstore
+          dev.store
         </Link>
 
         <form className="flex items-center w-[320px] gap-3 rounded-full bg-zinc-900 px-5 py-3 ring-1 ring-zinc-700">
