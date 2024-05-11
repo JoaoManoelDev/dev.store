@@ -6,7 +6,7 @@ interface StoreLayoutProps {
 
 const StoreLayout = ({ children }: StoreLayoutProps) => {
   return (
-    <div className="mx-auto grid min-h-screen w-full max-w-[1600px] grid-rows-app gap-5 px-8 p-8">
+    <div className="mx-auto grid min-h-screen w-full max-w-6xl grid-rows-app gap-5 px-8 p-8">
       <Header />
       {children}
     </div>
