@@ -11,7 +11,11 @@ interface ProductProps {
 }
 
 const getProduct = async (slug: string): Promise<IProduct> => {
-  const response = await api(`/products/${slug}`)
+  const response = await api(`/products/${slug}`, {
+    next: {
+      revalidate: 60 * 60, // 1 hour
+    },
+  })
 
   const product = await response.json()
 
@@ -28,10 +32,17 @@ export const generateMetadata = async ({
   }
 }
 
+export const generateStaticParams = async () => {
+  const response = await api('/products/featured')
+  const products: IProduct[] = await response.json()
+
+  return products.map((product) => ({
+    slug: product.slug,
+  }))
+}
+
 const Product = async ({ params }: ProductProps) => {
   const product = await getProduct(params.slug)
-
-  console.log('MEU PRODUTO', product)
 
   return (
     <div className="relative grid max-h-[860px] grid-cols-3">
