@@ -4,7 +4,10 @@ import '@/styles/globals.css'
 import { inter } from '@/styles/fonts'
 
 export const metadata: Metadata = {
-  title: 'devstore',
+  title: {
+    template: '%s | dev.store',
+    default: 'dev.store',
+  },
 }
 
 export default function RootLayout({
