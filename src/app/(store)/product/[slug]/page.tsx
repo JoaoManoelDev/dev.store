@@ -1,11 +1,32 @@
 import Image from 'next/image'
 
-const Product = () => {
+import { api } from '@/data/api'
+import { Product as IProduct } from '@/data/types/product'
+
+interface ProductProps {
+  params: {
+    slug: string
+  }
+}
+
+const getProduct = async (slug: string): Promise<IProduct> => {
+  const response = await api(`/products/${slug}`)
+
+  const product = await response.json()
+
+  return product
+}
+
+const Product = async ({ params }: ProductProps) => {
+  const product = await getProduct(params.slug)
+
+  console.log('MEU PRODUTO', product)
+
   return (
     <div className="relative grid max-h-[860px] grid-cols-3">
       <div className="col-span-2 overflow-hidden">
         <Image
-          src="/products/moletom-ia-p-devs.png"
+          src={product.image}
           alt=""
           width={620}
           height={620}
@@ -14,20 +35,27 @@ const Product = () => {
       </div>
 
       <div className="flex flex-col justify-center">
-        <h1 className="text-3xl font-bold leading-tight">
-          Moletom Never Stop Learning
-        </h1>
+        <h1 className="text-3xl font-bold leading-tight">{product.title}</h1>
 
         <p className="mt-2 leading-relaxed text-zinc-400">
-          Moletom fabricado com 88% de algodão e 12% de poliéster.
+          {product.description}
         </p>
 
         <div className="mt-8 flex items-center gap-3">
           <span className="rounded-full bg-violet-500 px-5 py-2.5 font-semibold">
-            R$ 129
+            {product.price.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            })}
           </span>
           <span className="text-sm text-zinc-400">
-            Em 12x sem juros de R$ 10,75
+            Em 12x sem juros de{' '}
+            {(product.price / 12).toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+            })}
           </span>
         </div>
 
