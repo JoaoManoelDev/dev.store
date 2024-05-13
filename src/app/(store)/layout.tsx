@@ -1,4 +1,5 @@
 import { Header } from '@/components/header'
+import { CartContextProvider } from '@/contexts/cart-context'
 
 interface StoreLayoutProps {
   children: React.ReactNode
@@ -6,10 +7,12 @@ interface StoreLayoutProps {
 
 const StoreLayout = ({ children }: StoreLayoutProps) => {
   return (
-    <div className="mx-auto grid min-h-screen w-full max-w-6xl grid-rows-app gap-5 px-8 p-8">
-      <Header />
-      {children}
-    </div>
+    <CartContextProvider>
+      <div className="mx-auto grid min-h-screen w-full max-w-6xl grid-rows-app gap-5 px-8 p-8">
+        <Header />
+        {children}
+      </div>
+    </CartContextProvider>
   )
 }
 
