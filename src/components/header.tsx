@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { Icons } from '@/components/icons'
+import { CartWidget } from '@/components/cart-widget'
 
 export const Header = () => {
   return (
@@ -22,10 +23,7 @@ export const Header = () => {
         </form>
       </div>
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <Icons.shoppingBag className="w-5 h-5" />
-          <span className="text-sm">Carrinho (0)</span>
-        </div>
+        <CartWidget />
 
         <div className="w-px h-4 bg-zinc-700" />
 
