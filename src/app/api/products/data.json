@@ -44,6 +44,15 @@
       "image": "/products/moletom-ia-p-devs.png",
       "description": "Moletom fabricado com 88% de algodão e 12% de poliéster.",
       "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Mouse Razer",
+      "slug": "mouse-razer",
+      "price": 199,
+      "image": "/products/mouse-razer.png",
+      "description": "Mouse 100% focado para o público gamer.",
+      "featured": false
     }
   ]
 }
