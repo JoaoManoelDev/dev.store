@@ -20,12 +20,11 @@ export const Header = () => {
         <div className="w-px h-4 bg-zinc-700" />
 
         <Link href="/" className="flex items-center gap-2 hover:underline">
-          <span className="text-sm">Conta</span>
           <Image
             src="https://github.com/JoaoManoelDev.png"
-            className="w-6 h-6 rounded-full"
-            width={24}
-            height={24}
+            className="w-8 h-8 rounded-full"
+            width={32}
+            height={32}
             alt=""
           />
         </Link>
