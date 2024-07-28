@@ -4,6 +4,7 @@ import colors from 'tailwindcss/colors'
 import { Product } from '@/data/types/product'
 import { api } from '@/data/api'
 import { env } from '@/env'
+import Image from 'next/image'
 
 export const alt = 'About Acme'
 export const size = {
@@ -47,7 +48,7 @@ const OgImage = async ({ params }: ImageProps) => {
           flexDirection: 'column',
         }}
       >
-        <img src={productImageUrl} alt="" style={{ width: '100%' }} />
+        <Image src={productImageUrl} alt="" style={{ width: '100%' }} />
       </div>
     ),
     {
