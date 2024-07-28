@@ -33,6 +33,7 @@ const Home = async () => {
           height={920}
           quality={100}
           alt=""
+          priority
         />
 
         <div className="absolute bottom-14 right-14 h-12 flex items-center gap-2 max-w-[280px] rounded-full border-2 border-zinc-500 bg-black/60 p-1 pl-5">
