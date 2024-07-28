@@ -1,8 +1,10 @@
+import { Suspense } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 import { CartWidget } from '@/components/cart-widget'
 import { SearchForm } from '@/components/search-form'
+import { SearchFormSkeleton } from '@/components/skeletons/search-form'
 
 export const Header = () => {
   return (
@@ -12,7 +14,9 @@ export const Header = () => {
           dev.store
         </Link>
 
-        <SearchForm />
+        <Suspense fallback={<SearchFormSkeleton />}>
+          <SearchForm />
+        </Suspense>
       </div>
       <div className="flex items-center gap-4">
         <CartWidget />
